@@ -1,0 +1,28 @@
+{
+  "name": "context-figure",
+  "version": "0.1.0",
+  "description": "On every prompt the person sends, one line for the model: the wall clock and how full the context window is. The person never sees it.",
+  "author": {
+    "name": "Kleanthis Economou"
+  },
+  "userConfig": {
+    "warnAt": {
+      "type": "number",
+      "title": "Warn at (percent of the window)",
+      "description": "Percent of the context window at or past which the warning rides on the line. 0 turns the warning off.",
+      "default": 75
+    },
+    "warning": {
+      "type": "string",
+      "title": "The warning's wording",
+      "description": "What the model is told at or past the threshold; {warnAt} stands for the number. Empty turns the warning off.",
+      "default": "PAST {warnAt}% of the window: finish or hand the work over soon; a long context degrades without the model noticing it"
+    },
+    "compactionNotice": {
+      "type": "string",
+      "title": "The notice after a compaction",
+      "description": "What the model is told on the first prompt after a compaction. Empty turns the notice off.",
+      "default": "a compaction just ran: everything before this prompt is a summary; re-read any file the work depends on before relying on what the summary says of it"
+    }
+  }
+}
